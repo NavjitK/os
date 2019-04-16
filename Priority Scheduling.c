@@ -7,6 +7,7 @@ int main()
 	int arrivalTime[20];
 	int waitingTime[20];
 	int turnAroundTime[20];
+	int completionTime[20];
 	int timeQuantum=2;
 	int a,b,c;
 	int total=0;
@@ -14,7 +15,7 @@ int main()
 	int temp;
 	int avgWT;
 	int avgTAT;
-	printf("Enter no. of processes: ");
+	printf("Enter no. of processes: ");//enter number of processes 
 	scanf("%d",&a);
 	printf("\n");
 	printf("Enter priority: ");
