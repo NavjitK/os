@@ -38,16 +38,6 @@ int main()
         process[b]=b+1;
 	}
 	printf("\n\n");
-	printf("Enter Arrival Time: ");
-	for(b=0;b<a;b++)
-	{
-		printf("\n");
-		printf("Enter Arrival Time for process: %d \n",b+1);
-		printf("Arrival Time: ");
-		scanf("%d",&arrivalTime[b]);
-        process[b]=b+1;
-	}
-	printf("\n");
 	printf("Initial Time Quantum for every process: %d",timeQuantum);
 	for(b=0;b<a;b++)
 	{
@@ -80,13 +70,13 @@ int main()
     avgWT=total/a;
     total=0;
     
-    printf("\n\n Process\t   Priority\t  Burst Time\t   Arrival Time\t   Waiting Time    \tTurn Around Time");
+    printf("\n\n Process\t   Priority\t  Burst Time\t    Waiting Time    \tTurn Around Time");
     
     for(b=0;b<a;b++)
     {
         turnAroundTime[b]=burstTime[b]+waitingTime[b];     
         total+=turnAroundTime[b];
-        printf("\n\n Process[%d]\t   %d\t\t    %d\t\t   %d\t\t    %d\t\t\t    %d\n",process[b],priority[b],burstTime[b],arrivalTime[b],waitingTime[b],turnAroundTime[b]);
+        printf("\n\n Process[%d]\t   %d\t\t    %d\t\t    %d\t\t\t    %d\n",process[b],priority[b],burstTime[b],waitingTime[b],turnAroundTime[b]);
     }
  
     avgTAT=total/a; 
