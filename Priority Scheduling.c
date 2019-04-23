@@ -2,23 +2,23 @@
 int main()
 {
 	int process[20];
-	int priority[20];
-	int burstTime[20];
-	int arrivalTime[20];
-	int waitingTime[20];
-	int turnAroundTime[20];
-	int completionTime[20];
-	int timeQuantum=2;
+	int priority[20];// for priorities of all processes
+	int burstTime[20];// burst time for all processes
+	int arrivalTime[20];// arrival time for all processes
+	int waitingTime[20];// waiting time for all processes
+	int turnAroundTime[20];// turnaround time for all processes
+	int completionTime[20];// complettion time for all processes
+	int timeQuantum=2;// time slice or time quantam
 	int a,b,c;
 	int total=0;
 	int sort;
 	int temp;
 	int avgWT;
 	int avgTAT;
-	printf("Enter no. of processes: ");
+	printf("Enter no. of processes: ");//total no of processes
 	scanf("%d",&a);
 	printf("\n");
-	printf("Enter priority: ");
+	printf("Enter priority: ");// inputs of priorities of all processes
 	for(b=0;b<a;b++)
 	{
 		printf("\n");
@@ -28,7 +28,7 @@ int main()
 		process[b]=b+1;
 	}
 	printf("\n\n");
-	printf("Enter Burst Time: ");
+	printf("Enter Burst Time: ");// input of burst time of all processes
 	for(b=0;b<a;b++)
 	{
 		printf("\n");
@@ -38,7 +38,7 @@ int main()
         process[b]=b+1;
 	}
 	printf("\n\n");
-	printf("Enter Arrival Time: ");
+	printf("Enter Arrival Time: ");// input of arrival time of all processes
 	for(b=0;b<a;b++)
 	{
 		printf("\n");
@@ -57,13 +57,13 @@ int main()
             if(priority[c]<priority[sort])
                 sort=c;
         }
-        temp=priority[b];
+        temp=priority[b];// swapping of values
         priority[b]=priority[sort];
         priority[sort]=temp;
-        temp=burstTime[b];
+        temp=burstTime[b];// swapping of values
         burstTime[b]=burstTime[sort];
         burstTime[sort]=temp;
-        temp=process[b];
+        temp=process[b];// swapping of values
         process[b]=process[sort];
         process[sort]=temp;
 	}
@@ -75,21 +75,21 @@ int main()
         {
             waitingTime[b]+=burstTime[c];
         }
-        total+=waitingTime[b];
+        total+=waitingTime[b];//total waiting time
     }
-    avgWT=total/a;
+    avgWT=total/a;//average waiting time
     total=0;
-    
+    // output of all info on screen to user
     printf("\n\n Process\t   Priority\t  Burst Time\t   Arrival Time\t   Waiting Time    \tTurn Around Time");
     
     for(b=0;b<a;b++)
     {
         turnAroundTime[b]=burstTime[b]+waitingTime[b];     
-        total+=turnAroundTime[b];
+        total+=turnAroundTime[b];//total turn around time
         printf("\n\n Process[%d]\t   %d\t\t    %d\t\t   %d\t\t    %d\t\t\t    %d\n",process[b],priority[b],burstTime[b],arrivalTime[b],waitingTime[b],turnAroundTime[b]);
     }
  
-    avgTAT=total/a; 
+    avgTAT=total/a; //average turnaround time
     printf("\n\n Average Waiting Time=%d\n",avgWT);
     printf("\n\n Average Turnaround Time=%d\n",avgTAT);
  
