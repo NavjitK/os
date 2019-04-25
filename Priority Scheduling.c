@@ -8,7 +8,7 @@ int main()
 	int waitingTime[20];// waiting time for all processes
 	int turnAroundTime[20];// turnaround time for all processes
 	int completionTime[20];// complettion time for all processes
-	int timeQuantum=2;// time slice or time quantam
+	int timeQuantum;// time slice or time quantam
 	int a,b,c;
 	int total=0;
 	int sort;
@@ -48,7 +48,9 @@ int main()
         process[b]=b+1;
 	}
 	printf("\n");
-	printf("Initial Time Quantum for every process: %d",timeQuantum);
+	printf("Time Quantum for every process: ");
+	scanf("%d",&timeQuantum);
+	printf("\n");
 	for(b=0;b<a;b++)
 	{
 		sort=b;
@@ -73,9 +75,9 @@ int main()
         waitingTime[b]=0;
         for(c=0;c<b;c++)
         {
-            waitingTime[b]+=burstTime[c];
+            waitingTime[b]=waitingTime[b]+burstTime[c];
         }
-        total+=waitingTime[b];//total waiting time
+        total=total+waitingTime[b];//total waiting time
     }
     avgWT=total/a;//average waiting time
     total=0;
@@ -85,7 +87,7 @@ int main()
     for(b=0;b<a;b++)
     {
         turnAroundTime[b]=burstTime[b]+waitingTime[b];     
-        total+=turnAroundTime[b];//total turn around time
+        total=total+turnAroundTime[b];//total turn around time
         printf("\n\n Process[%d]\t   %d\t\t    %d\t\t   %d\t\t    %d\t\t\t    %d\n",process[b],priority[b],burstTime[b],arrivalTime[b],waitingTime[b],turnAroundTime[b]);
     }
  
